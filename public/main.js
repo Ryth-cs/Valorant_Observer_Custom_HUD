@@ -34,13 +34,13 @@
 // 	Right5Agent : "Unknown"
 // }
 
-var socket = io('/');
+var socket = io('/overlay');
 
-socket.on('dataValue', function(data) {
-  	console.log("Received!");
-    //playerData = data;
-    updateData(data);  
-});
+// socket.on('dataValue', function(data) {
+//   	console.log("Received!");
+//     //playerData = data;
+//     updateData(data);  
+// });
 
 socket.on('adminVal', function(data) {
 	console.log(data)

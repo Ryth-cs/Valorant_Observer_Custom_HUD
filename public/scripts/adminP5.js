@@ -86,37 +86,39 @@ function draw() {
 	text("Player 4", 320, 185);
 	text("Player 5", 320, 235);
 
-	button = createButton('Update');
+	button = createButton('Update players');
 	button.position(19, 350);
 	button.mousePressed(updateVal);
+
+	button2 = createButton('Update team names');
+	button2.position(850, 135);
+	button2.mousePressed(updateVal);
 }
 
 function updateVal() {
 	console.log("clicked")
 	//var textInput = input.value();
 	var playerData = {
-		LeftTeam : Team1.value(),
-		Left1 : Player1.value(),
-		Left1Agent : Player1Agent.value(),
-		Left2 : Player2.value(),
-		Left2Agent : Player2Agent.value(),
-		Left3 : Player3.value(),
-		Left3Agent : Player3Agent.value(),
-		Left4 : Player4.value(),
-		Left4Agent : Player4Agent.value(),
-		Left5 : Player5.value(),
-		Left5Agent : Player5Agent.value(),
-		RightTeam : Team2.value(),
-		Right1 : Player6.value(),
-		Right1Agent : Player6Agent.value(),
-		Right2 : Player7.value(),
-		Right2Agent : Player7Agent.value(),
-		Right3 : Player8.value(),
-		Right3Agent : Player8Agent.value(),
-		Right4 : Player9.value(),
-		Right4Agent : Player9Agent.value(),
-		Right5 : Player0.value(),
-		Right5Agent : Player0Agent.value()
+		team1_player_1 : Player1.value(),
+		team1_player_1_agent : Player1Agent.value(),
+		team1_player_2 : Player2.value(),
+		team1_player_2_agent : Player2Agent.value(),
+		team1_player_3 : Player3.value(),
+		team1_player_3_agent : Player3Agent.value(),
+		team1_player_4 : Player4.value(),
+		team1_player_4_agent : Player4Agent.value(),
+		team1_player_5 : Player5.value(),
+		team1_player_5_agent : Player5Agent.value(),
+		team2_player_1 : Player6.value(),
+		team2_player_1_agent : Player6Agent.value(),
+		team2_player_2 : Player7.value(),
+		team2_player_2_agent : Player7Agent.value(),
+		team2_player_3 : Player8.value(),
+		team2_player_3_agent : Player8Agent.value(),
+		team2_player_4 : Player9.value(),
+		team2_player_4_agent : Player9Agent.value(),
+		team2_player_5 : Player0.value(),
+		team2_player_5_agent : Player0Agent.value()
 	}
 	socket.emit('adminUpdate', playerData)
 }

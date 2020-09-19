@@ -6,20 +6,7 @@ var app = express();
 var server = app.listen(1337);
 app.use(express.static('public'));
 
-// var value = {
-// 	Left1 : "Player1",
-// 	Left2 : "Player2",
-// 	Left3 : "Player3",
-// 	Left4 : "Player4",
-// 	Left5 : "Player5",
-// 	Right1 : "Player6",
-// 	Right2 : "Player7",
-// 	Right3 : "Player8",
-// 	Right4 : "Player9",
-// 	Right5 : "Player0"
-// }
-
-//app.use(express.static('public')); /* this line tells Express to use the public folder as our static folder from which we can serve static files*/
+var storedData = null;
 
 app.get('/', (req, res) => {
     //res.sendFile('viewer.html');
@@ -41,7 +28,7 @@ var io = socket(server);
 
 io.of('/').on('connection', function(socket) {
   console.log("(Viewer) New connection:", socket.id);
-  //socket.emit('dataValue', value);
+  io.of('/').emit('adminVal', storedData);
   socket.on('disconnect', function(){
     console.log("(Viewer) Disconnected:", socket.id);
   })
@@ -52,7 +39,7 @@ io.of('/admin').on('connection', function(socket) {
 
   socket.on('adminUpdate', function(data){
     io.of('/').emit('adminVal', data);
-    value = data;
+    storedData = data;
   })
 
   socket.on('disconnect', function(){

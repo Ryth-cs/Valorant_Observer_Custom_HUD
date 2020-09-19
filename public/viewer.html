@@ -1,15 +1,144 @@
-<!DOCTYPE html>
 <html>
-    <body>
-
-        <!--<h1>Viewer</h1>-->
-
-        <script src="/libs/p5.min.js"></script>
-        <script src="/libs/p5.dom.min.js"></script>
-        <script src="/libs/p5.sound.min.js"></script>
-
+	<head>
+		<title>Overlay</title>
+        <link rel="stylesheet" href="style.css" />
         <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js'></script>
-        <script src="/scripts/viewerP5.js"></script>
+		
+	</head>
+
+	<body>
+		<div class="box bot-left-box" id="left-box">
+			<div class="agent-container-individual">
+                <!--Bottom left box containing player names-->
+				<div class="agent-image"
+                    id="team1_player_1_agent">
+                    <!--1st Agent Image-->
+				</div>
+                <div class="player-name-container">
+                    <!--1st Agent Name-->
+					<p class="player-name" id="team1_player_1"></p>
+				</div>
+            </div>
+            <div class="agent-container-individual">
+                <!--Bottom left box containing player names-->
+				<div class="agent-image"
+                    id="team1_player_2_agent">
+                    <!--2nd Agent Image-->
+				</div>
+                <div class="player-name-container">
+                    <!--2nd Agent Name-->
+					<p class="player-name" id="team1_player_2"></p>
+				</div>
+            </div>
+            <div class="agent-container-individual">
+                <!--Bottom left box containing player names-->
+				<div class="agent-image"
+                    id="team1_player_3_agent">
+                    <!--3rd Agent Image-->
+				</div>
+                <div class="player-name-container">
+                    <!--3rd Agent Name-->
+					<p class="player-name" id="team1_player_3"></p>
+				</div>
+            </div>
+            <div class="agent-container-individual">
+                <!--Bottom left box containing player names-->
+				<div class="agent-image"
+                    id="team1_player_4_agent">
+                    <!--4th Agent Image-->
+				</div>
+                <div class="player-name-container">
+                    <!--4th Agent Name-->
+					<p class="player-name" id="team1_player_4"></p>
+				</div>
+            </div>
+            <div class="agent-container-individual">
+                <!--Bottom left box containing player names-->
+				<div class="agent-image"
+                    id="team1_player_5_agent">
+                    <!--5th Agent Image-->
+				</div>
+                <div class="player-name-container">
+                    <!--5th Agent Name-->
+					<p class="player-name" id="team1_player_5"></p>
+				</div>
+            </div>
+            <video
+				class="video-background"
+				id="left-video"
+				no-controls
+				autoplay
+				loop
+				src="BlueSide.mp4"
+			></video>
+        </div>
+        <div class="box bot-right-box" id="right-box">
+			<div class="agent-container-individual">
+                <!--Bottom right box containing player names-->
+                <div class="player-name-container-right">
+                    <!--1st Agent Name-->
+					<p class="player-name" id="team2_player_1"></p>
+				</div>
+				<div class="agent-image"
+                    id="team2_player_1_agent">
+                    <!--1st Agent Image-->
+				</div>
+            </div>
+            <div class="agent-container-individual">
+                <!--Bottom right box containing player names-->
+                <div class="player-name-container-right">
+                    <!--2nd Agent Name-->
+					<p class="player-name" id="team2_player_2"></p>
+				</div>
+				<div class="agent-image"
+                    id="team2_player_2_agent">
+                    <!--2nd Agent Image-->
+				</div>
+            </div>
+            <div class="agent-container-individual">
+                <!--Bottom right box containing player names-->
+                <div class="player-name-container-right">
+                    <!--3rd Agent Name-->
+					<p class="player-name" id="team2_player_3"></p>
+				</div>
+				<div class="agent-image"
+                    id="team2_player_3_agent">
+                    <!--3rd Agent Image-->
+				</div>
+            </div>
+            <div class="agent-container-individual">
+                <!--Bottom right box containing player names-->
+                <div class="player-name-container-right">
+                    <!--4th Agent Name-->
+					<p class="player-name" id="team2_player_4"></p>
+				</div>
+				<div class="agent-image"
+                    id="team2_player_4_agent">
+                    <!--4th Agent Image-->
+				</div>
+            </div>
+            <div class="agent-container-individual">
+                <!--Bottom right box containing player names-->
+                <div class="player-name-container-right">
+                    <!--5th Agent Name-->
+					<p class="player-name" id="team2_player_5"></p>
+				</div>
+				<div class="agent-image"
+                    id="team2_player_5_agent">
+                    <!--5th Agent Image-->
+				</div>
+            </div>
+            <video
+				class="video-background"
+				id="right-video"
+				no-controls
+				autoplay
+				loop
+				src="RedSide.mp4"
+			></video>
+        </div>
+        <div class="overlay"></div>
 
     </body>
+    <script type="text/javascript" src="main.js"></script>
 </html>

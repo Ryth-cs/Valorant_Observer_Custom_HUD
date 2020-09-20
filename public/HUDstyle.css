@@ -1,0 +1,50 @@
+.base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("TestHUD.png");
+    z-index: 0;
+  }
+
+  .team_titles {
+	display: flex;
+	justify-content: space-between;
+}
+
+.left_team {
+    flex: 1;
+    /* background-color: violet; */
+    z-index: 1;
+}
+
+.right_team {
+    flex: 1;
+    /* background-color: red; */
+    z-index: 1;
+}
+
+.left_team > p {
+	text-align: left;
+    margin: 0px 0px 0px 0px;
+    margin-left: 50px;
+	font-size:28px;
+	/* text-shadow: 0px 0px 6px #000000; */
+	font-family: Arial;
+	font-weight: bold;
+    line-height: 1.2;
+    color: white;
+}
+
+.right_team > p {
+	text-align: right;
+    margin: 0px 0px 0px 0px;
+    margin-right: 50px;
+	font-size: 28px;
+	/* text-shadow: 0px 0px 6px #000000; */
+	font-family: Arial;
+	font-weight: bold;
+    line-height: 1.2;
+    color: white;
+}

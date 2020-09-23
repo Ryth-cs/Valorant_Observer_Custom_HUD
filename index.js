@@ -7,6 +7,7 @@ var server = app.listen(1337);
 app.use(express.static('public'));
 
 var storedData = null;
+var storedTeamNames = null;
 
 app.get('/overlay', (req, res) => {
     //res.sendFile('viewer.html');
@@ -32,10 +33,18 @@ app.get('*', function (request, response) {
 var io = socket(server);
 
 io.of('/overlay').on('connection', function(socket) {
-  console.log("(Viewer) New connection:", socket.id);
+  console.log("(Overlay) New connection:", socket.id);
   io.of('/overlay').emit('adminVal', storedData);
   socket.on('disconnect', function(){
-    console.log("(Viewer) Disconnected:", socket.id);
+    console.log("(Overlay) Disconnected:", socket.id);
+  })
+})
+
+io.of('/hud').on('connection', function(socket) {
+  console.log("(HUD) New connection:", socket.id);
+  io.of('/hud').emit('adminTeamName', storedTeamNames);
+  socket.on('disconnect', function(){
+    console.log("(HUD) Disconnected:", socket.id);
   })
 })
 
@@ -45,6 +54,18 @@ io.of('/admin').on('connection', function(socket) {
   socket.on('adminUpdate', function(data){
     io.of('/overlay').emit('adminVal', data);
     storedData = data;
+  })
+
+  socket.on('adminTeamNameUpdate', function(data){
+    console.log("Received team names")
+    io.of('/hud').emit('adminTeamName', data);
+    storedTeamNames = data;
+  })
+
+  socket.on('adminSwitchColours', function(data){
+    console.log("Received team names")
+    io.of('/overlay').emit('adminSwitch', data);
+    io.of('/hud').emit('adminSwitch', data);
   })
 
   socket.on('disconnect', function(){

@@ -3,17 +3,19 @@
     <body>
         <title>HUD</title>
         <link rel="stylesheet" href="HUDstyle.css" />
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js'></script>
 
-        <div class = "base"></div>
+        <div class = "base" id = "base"></div>
 
         <div class = "team_titles">
             <div class = "left_team">
-                <p>York</p>
+                <p id = "leftTeam">Green University</p>
             </div>
             <div class = "right_team">
-                <p>Nottingham Trent</p>
+                <p id = "rightTeam">Red University</p>
             </div>
         </div>
 
     </body>
+    <script type="text/javascript" src="hud.js"></script>
 </html>

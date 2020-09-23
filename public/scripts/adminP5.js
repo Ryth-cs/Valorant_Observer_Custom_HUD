@@ -92,7 +92,24 @@ function draw() {
 
 	button2 = createButton('Update team names');
 	button2.position(850, 135);
-	button2.mousePressed(updateVal);
+	button2.mousePressed(updateTeamNames);
+
+	button3 = createButton('Switch colours (halftime)');
+	button3.position(850, 235);
+	button3.mousePressed(switchColours);
+}
+
+function switchColours() {
+	socket.emit('adminSwitchColours', null);
+}
+
+function updateTeamNames() {
+	var teamNames = {
+		LeftTeam : Team1.value(),
+		RightTeam : Team2.value()
+	}
+	socket.emit('adminTeamNameUpdate', teamNames)
+	console.log("Sent team names")
 }
 
 function updateVal() {
